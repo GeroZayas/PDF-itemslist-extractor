@@ -1,4 +1,4 @@
-# 📄 PDF and CSV Utility Tool
+# 📄 PDF Items List Extractor and CSV Utility Tool
 
 A versatile tool designed to streamline the extraction of list items from PDF documents and the merging of CSV files, ensuring unique identification across datasets.
 
