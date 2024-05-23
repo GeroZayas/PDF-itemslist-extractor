@@ -61,6 +61,6 @@ Gero Zayas - @gerozayas
 
 ## 📧 Contact
 
-gerozayas@gmail.com
+📧 gerozayas@gmail.com
 
-[Gero Zayas Portfolio](https://www.gerozayas.com)
+🌐 [Gero Zayas Portfolio](https://www.gerozayas.com)
