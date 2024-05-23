@@ -3,8 +3,38 @@ import pandas as pd
 import re
 import os  # Import the os module to handle file paths
 import typer
+from typing import List
 
 app = typer.Typer()
+
+
+@app.command()
+def merge_csv_files(
+    csv_files: List[str],
+    output_file: str = typer.Option("./output.csv", help="Output file path"),
+) -> None:
+    """
+    Merges several CSV files into one, ensuring unique IDs.
+
+    Args:
+        csv_files: A list of paths to the CSV files to merge.
+        output_file: The path to save the merged CSV file.
+    """
+    dfs = []
+    for csv_file in csv_files:
+        df = pd.read_csv(csv_file)
+        # Ensure the 'id' column is numeric for sorting
+        df["id"] = pd.to_numeric(df["id"], errors="coerce")
+        # Sort by 'id' and drop duplicates
+        df = df.sort_values(by="id").drop_duplicates(subset=["id"])
+        dfs.append(df)
+
+    # Concatenate all dataframes
+    merged_df = pd.concat(dfs, ignore_index=True)
+
+    # Save the merged dataframe to a CSV file
+    merged_df.to_csv(output_file, index=False)
+    typer.echo(f"Merged CSV saved to {output_file}")
 
 
 @app.command()
