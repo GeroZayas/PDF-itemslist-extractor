@@ -14,23 +14,26 @@ def merge_csv_files(
     output_file: str = typer.Option("./output.csv", help="Output file path"),
 ) -> None:
     """
-    Merges several CSV files into one, ensuring unique IDs.
+    Merges several CSV files into one, ensuring unique IDs by creating a new sequential ID column.
 
     Args:
         csv_files: A list of paths to the CSV files to merge.
         output_file: The path to save the merged CSV file.
     """
     dfs = []
+    max_id = 0  # Initialize a variable to keep track of the maximum ID encountered
+
     for csv_file in csv_files:
         df = pd.read_csv(csv_file)
-        # Ensure the 'id' column is numeric for sorting
-        df["id"] = pd.to_numeric(df["id"], errors="coerce")
-        # Sort by 'id' and drop duplicates
-        df = df.sort_values(by="id").drop_duplicates(subset=["id"])
+        # Reset the index to avoid duplicate IDs
+        df.reset_index(drop=True, inplace=True)
+        # Update max_id if necessary
+        max_id = max(max_id, df["id"].max()) if "id" in df.columns else max_id
         dfs.append(df)
 
-    # Concatenate all dataframes
+    # Create a new 'id' column starting from 1 and incrementing by 1 for each row
     merged_df = pd.concat(dfs, ignore_index=True)
+    merged_df["id"] = range(1, len(merged_df) + 1)
 
     # Save the merged dataframe to a CSV file
     merged_df.to_csv(output_file, index=False)
