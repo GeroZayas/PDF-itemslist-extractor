@@ -4,8 +4,8 @@ A versatile tool designed to streamline the extraction of list items from PDF do
 
 ## 🛠️ Features
 
-- Extract Items from PDF: Convert list-like structures in PDF documents into structured CSV format.
-- Merge CSV Files: Combine multiple CSV files into a single file, maintaining unique IDs through a newly generated sequential ID column.
+- **Extract Items from PDF**: Convert list-like structures in PDF documents into structured CSV format.
+- **Merge CSV Files**: Combine multiple CSV files into a single file, maintaining unique IDs through a newly generated sequential ID column.
 
 ## 🖥️ Prerequisites
 
