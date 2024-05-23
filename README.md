@@ -43,7 +43,7 @@ python your_script_name.py merge_csv_files./file1.csv./file2.csv./merged_output.
 
 ## 📁 Example
 
-Assuming you have a PDF named example.pdf and two CSV files named data1.csv and data2.csv, you can extract items from the PDF and merge the CSV files as follows:
+Assuming you have a PDF named **_example.pdf_** and two CSV files named **_data1.csv_** and **_data2.csv_**, you can extract items from the PDF and merge the CSV files as follows:
 
 ```bash
 python your_script_name.py extract_and_save./example.pdf./extracted_items.csv
