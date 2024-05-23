@@ -19,8 +19,10 @@ A versatile tool designed to streamline the extraction of list items from PDF do
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/pdffileutils.git
-cd pdffileutils
+git clone https://github.com/GeroZayas/PDF-itemslist-extractor.git
+
+cd PDF-itemslist-extractor
+
 pip install -r requirements.txt
 ```
 
@@ -43,8 +45,11 @@ python your_script_name.py merge_csv_files./file1.csv./file2.csv./merged_output.
 
 Assuming you have a PDF named example.pdf and two CSV files named data1.csv and data2.csv, you can extract items from the PDF and merge the CSV files as follows:
 
+```bash
 python your_script_name.py extract_and_save./example.pdf./extracted_items.csv
+
 python your_script_name.py merge_csv_files./data1.csv./data2.csv./merged_data.csv
+```
 
 ## 🎯 Contributing
 
